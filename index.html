@@ -1,37 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Donate to help animals in need at our shelter. Support our mission of providing care and love to abandoned animals.">
     <title>Animal Shelter Donation | Пожертвования приюту для животных</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class="main-header">
-        <nav class="nav-container">
+    <header class="main-header" role="banner">
+        <nav class="nav-container" role="navigation" aria-label="Main navigation">
             <a href="#" class="logo" data-en="Animal Shelter" data-ru="Приют для животных">Animal Shelter</a>
             <div class="nav-links">
                 <a href="#donate" class="nav-link" data-en="Donate" data-ru="Пожертвовать">Donate</a>
                 <a href="#about" class="nav-link" data-en="About Us" data-ru="О нас">About Us</a>
                 <a href="#achievements" class="nav-link" data-en="Achievements" data-ru="Достижения">Achievements</a>
             </div>
-            <div class="language-switcher">
-                <button onclick="switchLanguage('en')" class="lang-btn" id="en-btn">English</button>
-                <button onclick="switchLanguage('ru')" class="lang-btn" id="ru-btn">Русский</button>
+            <div class="language-switcher" role="group" aria-label="Language selection">
+                <button onclick="switchLanguage('en')" class="lang-btn" id="en-btn" aria-pressed="false">English</button>
+                <button onclick="switchLanguage('ru')" class="lang-btn" id="ru-btn" aria-pressed="true">Русский</button>
             </div>
         </nav>
     </header>
 
-    <main>
+    <main role="main">
         <section id="donate" class="section">
             <div class="container">
                 <h1 data-en="Donate to Animal Shelter" data-ru="Пожертвования приюту для животных">Donate to Animal Shelter</h1>
-                <div class="donation-form">
+                <div class="donation-form" role="form" aria-label="Donation form">
                     <label for="amount" data-en="Select donation amount ($):" data-ru="Выберите сумму пожертвования ($):">Select donation amount ($):</label>
-                    <input type="number" id="amount" min="1" value="10" step="1">
-                    <button onclick="processDonation()" data-en="Donate Now" data-ru="Пожертвовать">Donate Now</button>
+                    <input type="number" id="amount" min="1" value="10" step="1" aria-label="Donation amount in dollars">
+                    <button onclick="processDonation()" data-en="Donate Now" data-ru="Пожертвовать" aria-label="Process donation">Donate Now</button>
                 </div>
-                <div id="message"></div>
+                <div id="message" role="alert" aria-live="polite"></div>
             </div>
         </section>
 
@@ -58,7 +59,7 @@
                        data-ru="Наш приют для животных стремится обеспечить заботу, любовь и убежище брошенным и спасенным животным. Мы верим, что каждое животное заслуживает шанс на счастливую жизнь.">
                         Our animal shelter is committed to providing care, love, and shelter to abandoned and rescued animals. We believe every animal deserves a chance at a happy life.
                     </p>
-                    <ul class="achievements">
+                    <ul class="achievements" role="list">
                         <li data-en="Over 5,000 animals rescued since 2008" data-ru="Более 5,000 животных спасено с 2008 года">Over 5,000 animals rescued since 2008</li>
                         <li data-en="24/7 veterinary care facility" data-ru="Круглосуточная ветеринарная помощь">24/7 veterinary care facility</li>
                         <li data-en="Network of 1,000+ volunteer families" data-ru="Сеть из более 1,000 семей-волонтеров">Network of 1,000+ volunteer families</li>
@@ -69,46 +70,6 @@
         </section>
     </main>
 
-    <div class="language-switcher">
-        <button onclick="switchLanguage('en')" class="lang-btn" id="en-btn">English</button>
-        <button onclick="switchLanguage('ru')" class="lang-btn" id="ru-btn">Русский</button>
-    </div>
-
-    <div class="container">
-        <h1 data-en="Donate to Animal Shelter" data-ru="Пожертвования приюту для животных">Donate to Animal Shelter</h1>
-        <div class="donation-form">
-            <label for="amount" data-en="Select donation amount ($):" data-ru="Выберите сумму пожертвования ($):">Select donation amount ($):</label>
-            <input type="number" id="amount" min="1" value="10" step="1">
-            <button onclick="processDonation()" data-en="Donate Now" data-ru="Пожертвовать">Donate Now</button>
-        </div>
-        <div id="message"></div>
-    </div>
-
-    <div class="container about-section">
-        <h2 data-en="Who We Are?" data-ru="Кто мы?">Who We Are?</h2>
-        <div class="ceo-profile">
-            <img src="img/ceo_petr.jpg" alt="Petya - CEO of Animal Shelter" class="ceo-image">
-            <div class="ceo-info">
-                <h3 data-en="Meet Our CEO - Petya" data-ru="Наш директор - Петя">Meet Our CEO - Petya</h3>
-                <p data-en="With over 15 years of experience in animal welfare, Petya has dedicated his life to creating a safe haven for animals in need. Under his leadership, our shelter has rescued and rehomed more than 5,000 animals." 
-                   data-ru="С более чем 15-летним опытом работы в сфере защиты животных, Петя посвятил свою жизнь созданию безопасного убежища для нуждающихся животных. Под его руководством наш приют спас и нашел новый дом более чем 5,000 животным.">
-                    With over 15 years of experience in animal welfare, Petya has dedicated his life to creating a safe haven for animals in need. Under his leadership, our shelter has rescued and rehomed more than 5,000 animals.
-                </p>
-            </div>
-        </div>
-        <div class="mission-statement">
-            <p data-en="Our animal shelter is committed to providing care, love, and shelter to abandoned and rescued animals. We believe every animal deserves a chance at a happy life." 
-               data-ru="Наш приют для животных стремится обеспечить заботу, любовь и убежище брошенным и спасенным животным. Мы верим, что каждое животное заслуживает шанс на счастливую жизнь.">
-                Our animal shelter is committed to providing care, love, and shelter to abandoned and rescued animals. We believe every animal deserves a chance at a happy life.
-            </p>
-            <ul class="achievements">
-                <li data-en="Over 5,000 animals rescued since 2008" data-ru="Более 5,000 животных спасено с 2008 года">Over 5,000 animals rescued since 2008</li>
-                <li data-en="24/7 veterinary care facility" data-ru="Круглосуточная ветеринарная помощь">24/7 veterinary care facility</li>
-                <li data-en="Network of 1,000+ volunteer families" data-ru="Сеть из более 1,000 семей-волонтеров">Network of 1,000+ volunteer families</li>
-                <li data-en="100% transparency in fund utilization" data-ru="100% прозрачность в использовании средств">100% transparency in fund utilization</li>
-            </ul>
-        </div>
-    </div>
     <script src="script.js"></script>
 </body>
 </html> 

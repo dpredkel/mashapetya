@@ -1,5 +1,5 @@
 // Current language
-let currentLang = 'en';
+let currentLang = 'ru';
 
 // Messages in different languages
 const messages = {
@@ -18,8 +18,11 @@ function switchLanguage(lang) {
     currentLang = lang;
     
     // Update active button state
-    document.getElementById('en-btn').classList.toggle('active', lang === 'en');
-    document.getElementById('ru-btn').classList.toggle('active', lang === 'ru');
+    document.getElementById('en-btn').setAttribute('aria-pressed', lang === 'en');
+    document.getElementById('ru-btn').setAttribute('aria-pressed', lang === 'ru');
+    
+    // Update document language
+    document.documentElement.lang = lang;
     
     // Update all elements with data-en and data-ru attributes
     document.querySelectorAll('[data-' + lang + ']').forEach(element => {
@@ -90,6 +93,6 @@ window.addEventListener('scroll', updateActiveNavLink);
 
 // Set initial language and active nav link
 document.addEventListener('DOMContentLoaded', () => {
-    switchLanguage('en');
+    switchLanguage('ru');
     updateActiveNavLink();
 }); 
